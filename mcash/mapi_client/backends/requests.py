@@ -3,6 +3,7 @@ from ..mapi_response import MapiResponse
 
 __all__ = ["RequestsFramework"]
 
+
 class RequestsFramework(object):
     def dispatch_request(self, method, url, data, headers, auth):
         import requests
