@@ -6,10 +6,10 @@ import random
 import sys
 from optparse import OptionParser
 
-import httplib
 import requests
 
 from .auth import RSA_SHA256Auth
+from .utils import httplib
 
 
 def rsa_auth_merchant_simple_test(

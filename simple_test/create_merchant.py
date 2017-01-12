@@ -4,8 +4,9 @@
 '''
 from __future__ import print_function
 
-import httplib
 import requests
+
+from .utils import httplib
 
 
 def create_merchant(testbed_token, integrator_name):

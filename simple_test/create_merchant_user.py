@@ -5,11 +5,11 @@ from __future__ import print_function
 
 import json
 
-import httplib
 import requests
 from Crypto.PublicKey import RSA
 
 from .auth import RSA_SHA256Auth
+from .utils import httplib
 
 
 def gen_rsa_key_pair_files(merchant_id, merchant_user):
