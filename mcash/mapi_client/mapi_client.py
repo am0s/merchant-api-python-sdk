@@ -3,7 +3,6 @@ import json
 import logging
 
 from .backends.requestsframework import RequestsFramework
-from .mapi_attachment import upload_attachment
 from .mapi_error import MapiError
 from .mapi_response import MapiResponse
 from .validation import validate_input
@@ -768,4 +767,5 @@ class MapiClient(object):
         return self.upload_attachment(url=url, data=data, mime_type='application/vnd.mcash.receipt.v1+json')
 
     def upload_attachment(self, url, mime_type, data):
+        from .mapi_attachment import upload_attachment
         return upload_attachment(self, url, mime_type, data)
