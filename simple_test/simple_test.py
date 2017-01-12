@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 '''This file is provided as is, as an example of how some mcash merchant API
    calls look like. This file may change at anytime, without notification.
 '''

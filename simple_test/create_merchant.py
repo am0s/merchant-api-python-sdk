@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 ''' Creates a merchant_id on the testbed.
     This is intended to script some work that today is manual on the testbed.
 '''

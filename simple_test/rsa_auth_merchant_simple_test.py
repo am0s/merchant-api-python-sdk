@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 from auth import RSA_SHA256Auth
 import requests
 import json

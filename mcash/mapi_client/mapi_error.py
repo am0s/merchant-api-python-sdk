@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 from .mapi_response import MapiResponse
 
 __all__ = ["MapiError"]

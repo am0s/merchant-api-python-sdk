@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 from mcash import mapi_client
 from requests import HTTPError
 from random import choice

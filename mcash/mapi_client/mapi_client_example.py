@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 from mcash import mapi_client
 from mcash.mapi_client.pusherconnector import PusherConnector
 import sys

@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 import pusherclient
 import logging
 from time import sleep

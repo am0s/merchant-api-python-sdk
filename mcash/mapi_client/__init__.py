@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 from mcash.mapi_client.mapi_client import *
 from mcash.mapi_client.auth import *
 from mcash.mapi_client.mapi_error import *

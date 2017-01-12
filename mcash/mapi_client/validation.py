@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 from functools import wraps
 from voluptuous import Schema, Required, Any, All, Length, Range
 

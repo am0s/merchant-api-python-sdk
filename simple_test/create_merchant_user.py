@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 ''' Creates a merchant_user on the testbed.
 '''
 
