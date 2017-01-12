@@ -2,11 +2,8 @@
 import json
 import logging
 
-from poster.encode import MultipartParam
-from poster.encode import multipart_encode
-
-from .auth import OpenAuth
 from .backends.requestsframework import RequestsFramework
+from .mapi_attachment import upload_attachment
 from .mapi_error import MapiError
 from .mapi_response import MapiResponse
 from .validation import validate_input
@@ -771,19 +768,4 @@ class MapiClient(object):
         return self.upload_attachment(url=url, data=data, mime_type='application/vnd.mcash.receipt.v1+json')
 
     def upload_attachment(self, url, mime_type, data):
-        data, headers = multipart_encode([MultipartParam('file', value=data, filename='filename', filetype=mime_type)])
-        data = "".join(data)
-
-        res = self.backend.dispatch_request(method='POST',
-                                            url=url,
-                                            body=data,
-                                            headers=headers,
-                                            auth=OpenAuth())
-
-        if not isinstance(res, MapiResponse):
-            res = MapiResponse(*res)
-
-        if res.status // 100 != 2:
-            raise MapiError(*res)
-
-        return res
+        return upload_attachment(self, url, mime_type, data)
