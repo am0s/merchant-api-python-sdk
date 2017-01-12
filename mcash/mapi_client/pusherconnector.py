@@ -1,8 +1,9 @@
 # -*- coding: utf-8 -*-
-import pusherclient
 import logging
-from time import sleep
 from threading import Thread, Event
+from time import sleep
+
+import pusherclient
 
 __all__ = ["PusherConnector"]
 

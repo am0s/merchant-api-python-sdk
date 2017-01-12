@@ -1,8 +1,9 @@
 # -*- coding: utf-8 -*-
-from ..mapi_response import MapiResponse
 import json
 
 from google.appengine.api import urlfetch
+
+from ..mapi_response import MapiResponse
 
 __all__ = ["UrlFetchFramework"]
 

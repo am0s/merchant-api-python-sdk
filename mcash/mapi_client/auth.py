@@ -1,9 +1,10 @@
 # -*- coding: utf-8 -*-
 import base64
+from time import strftime
+
 from Crypto.Hash import SHA256
 from Crypto.PublicKey import RSA
 from Crypto.Signature import PKCS1_v1_5
-from time import strftime
 
 __all__ = ["OpenAuth", "SecretAuth", "RsaSha256Auth"]
 

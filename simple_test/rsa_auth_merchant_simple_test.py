@@ -1,11 +1,12 @@
 # -*- coding: utf-8 -*-
-from auth import RSA_SHA256Auth
-import requests
 import json
 import random
 import sys
-import httplib
 from optparse import OptionParser
+
+import httplib
+import requests
+from auth import RSA_SHA256Auth
 
 
 def rsa_auth_merchant_simple_test(

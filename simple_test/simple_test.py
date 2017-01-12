@@ -5,6 +5,7 @@
 
 import sys
 from optparse import OptionParser
+
 from create_merchant import create_merchant
 from create_merchant_user import create_merchant_user
 from rsa_auth_merchant_simple_test import rsa_auth_merchant_simple_test

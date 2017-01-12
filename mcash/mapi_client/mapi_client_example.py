@@ -1,13 +1,14 @@
 # -*- coding: utf-8 -*-
-from mcash import mapi_client
-from mcash.mapi_client.pusherconnector import PusherConnector
+import json
+import logging
+import pprint
+import signal
 import sys
 import time
-import logging
-import signal
-import pprint
 import uuid
-import json
+
+from mcash import mapi_client
+from mcash.mapi_client.pusherconnector import PusherConnector
 
 
 class MapiClientExample(object):

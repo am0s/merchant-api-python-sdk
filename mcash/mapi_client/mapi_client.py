@@ -1,15 +1,15 @@
 # -*- coding: utf-8 -*-
 import json
-from .auth import OpenAuth
-from .validation import validate_input
 import logging
-from .mapi_response import MapiResponse
+
+from poster.encode import MultipartParam
+from poster.encode import multipart_encode
+
+from .auth import OpenAuth
 from .backends.requestsframework import RequestsFramework
 from .mapi_error import MapiError
-
-from poster.encode import multipart_encode
-from poster.encode import MultipartParam
-
+from .mapi_response import MapiResponse
+from .validation import validate_input
 
 __all__ = ["MapiClient"]
 

@@ -2,14 +2,12 @@
 ''' Creates a merchant_user on the testbed.
 '''
 
-from auth import RSA_SHA256Auth
-import requests
 import json
-import random
-import sys
+
 import httplib
-from optparse import OptionParser
+import requests
 from Crypto.PublicKey import RSA
+from auth import RSA_SHA256Auth
 
 
 def gen_rsa_key_pair_files(merchant_id, merchant_user):

@@ -1,9 +1,10 @@
 # -*- coding: utf-8 -*-
-from mcash import mapi_client
-from requests import HTTPError
 from random import choice
 from string import ascii_lowercase
 
+from requests import HTTPError
+
+from mcash import mapi_client
 
 mapiclient = mapi_client.MapiClient(
     # RSA encryption is preferred

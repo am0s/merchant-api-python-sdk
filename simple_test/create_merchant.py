@@ -3,11 +3,8 @@
     This is intended to script some work that today is manual on the testbed.
 '''
 
-import requests
-import json
-import random
-import sys
 import httplib
+import requests
 
 
 def create_merchant(testbed_token, integrator_name):

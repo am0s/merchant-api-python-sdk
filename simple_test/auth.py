@@ -1,10 +1,10 @@
 # -*- coding: utf-8 -*-
 import base64
+from time import strftime
+
 from Crypto.Hash import SHA256
 from Crypto.PublicKey import RSA
 from Crypto.Signature import PKCS1_v1_5
-from time import strftime
-
 from requests.auth import AuthBase
 
 
