@@ -14,10 +14,12 @@ setup(
     install_requires=["pycrypto>=2.6",
                       "requests>=2.2.1",
                       "voluptuous>=0.8.4",
-                      "poster>=0.8.1",
-                      "wsgiref>=0.1.2"],
+                      ],
     extras_require={
-        'mapi_client_example':  ["pusherclient>=0.2.0"]
+        'mapi_client_example':  [
+            "poster>=0.8.1",
+            "pusherclient>=0.2.0",
+        ]
     },
     packages=find_packages('.'),
     namespace_packages=['mcash']
