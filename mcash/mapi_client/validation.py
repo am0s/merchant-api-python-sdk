@@ -3,6 +3,8 @@ from functools import wraps
 
 from voluptuous import Schema, Required, Any, All, Length, Range
 
+from .six import string_types
+
 
 def validate_input(function):
     """Decorator that validates the kwargs of the function passed to it."""
@@ -18,144 +20,144 @@ def validate_input(function):
     return wrapper
 
 create_user_validator = Schema({
-    Required('user_id'): basestring,
+    Required('user_id'): string_types,
     'roles': [Any('user', 'superuser')],
-    'netmask': basestring,
-    'secret': All(basestring, Length(min=8, max=64)),
-    'pubkey': basestring
+    'netmask': string_types,
+    'secret': All(string_types, Length(min=8, max=64)),
+    'pubkey': string_types
 })
 
 update_user_validator = Schema({
-    Required('user_id'): basestring,
+    Required('user_id'): string_types,
     'roles': [Any('user', 'superuser')],
-    'netmask': basestring,
-    'secret': All(basestring, Length(min=8, max=64)),
-    'pubkey': basestring
+    'netmask': string_types,
+    'secret': All(string_types, Length(min=8, max=64)),
+    'pubkey': string_types
 })
 
 create_pos_validator = Schema({
-    Required('name'): basestring,
-    Required('pos_type'): basestring,
-    Required('pos_id'): basestring,
+    Required('name'): string_types,
+    Required('pos_type'): string_types,
+    Required('pos_id'): string_types,
     'location': {'latitude': float,
                  'longitude': float,
                  'accuracy': float}
 })
 
 create_shortlink_validator = Schema({
-    'callback_uri': basestring,
-    'description': basestring,
-    'serial_number': basestring
+    'callback_uri': string_types,
+    'description': string_types,
+    'serial_number': string_types
 })
 
 update_pos_validator = Schema({
-    Required('pos_id'): basestring,
-    Required('name'): basestring,
-    Required('pos_type'): basestring,
+    Required('pos_id'): string_types,
+    Required('name'): string_types,
+    Required('pos_type'): string_types,
     'location': {'latitude': float,
                  'longitude': float,
                  'accuracy': float}
 })
 
 create_payment_request_validator = Schema({
-    'ledger': basestring,
-    'display_message_uri': basestring,
-    'callback_uri': basestring,
-    Required('customer'): All(basestring, Length(max=100)),
-    Required('currency'): All(basestring, Length(min=3, max=3)),
-    Required('amount'): basestring,
-    'additional_amount': basestring,
-    'required_scope': basestring,
-    'required_scope_text': basestring,
+    'ledger': string_types,
+    'display_message_uri': string_types,
+    'callback_uri': string_types,
+    Required('customer'): All(string_types, Length(max=100)),
+    Required('currency'): All(string_types, Length(min=3, max=3)),
+    Required('amount'): string_types,
+    'additional_amount': string_types,
+    'required_scope': string_types,
+    'required_scope_text': string_types,
     'additional_edit': bool,
     Required('allow_credit'): bool,
-    Required('pos_id'): basestring,
-    Required('pos_tid'): basestring,
-    'text': basestring,
+    Required('pos_id'): string_types,
+    Required('pos_tid'): string_types,
+    'text': string_types,
     Required('action'): Any('auth', 'sale', 'AUTH', 'SALE'),
     Required('expires_in'): All(int, Range(min=0, max=2592000)),
-    'links': [{'uri': basestring, 'caption': basestring, 'show_on': [Any('pending', 'fail', 'ok')]}],
+    'links': [{'uri': string_types, 'caption': string_types, 'show_on': [Any('pending', 'fail', 'ok')]}],
     'line_items': Any([{
-        Required('product_id'): basestring,
-        'vat': basestring,
-        'metadata': Any([{'key': basestring, 'value': basestring}], None),
-        'description': basestring,
-        'vat_rate': basestring,
-        Required('total'): basestring,
+        Required('product_id'): string_types,
+        'vat': string_types,
+        'metadata': Any([{'key': string_types, 'value': string_types}], None),
+        'description': string_types,
+        'vat_rate': string_types,
+        Required('total'): string_types,
         'tags': [{
-            Required('tag_id'): basestring,
-            Required('label'): basestring,
+            Required('tag_id'): string_types,
+            Required('label'): string_types,
         }],
-        Required('item_cost'): basestring,
-        Required('quantity'): basestring,
+        Required('item_cost'): string_types,
+        Required('quantity'): string_types,
     }], None)
 })
 
 update_payment_request_validator = Schema({
-    'tid': basestring,
-    'ledger': basestring,
-    'display_message_uri': basestring,
-    'callback_uri': basestring,
-    'currency': All(basestring, Length(min=3, max=3)),
-    'amount': basestring,
-    'additional_amount': basestring,
-    'required_scope': basestring,
-    'required_scope_text': basestring,
-    'capture_id': basestring,
-    'refund_id': basestring,
-    'text': basestring,
+    'tid': string_types,
+    'ledger': string_types,
+    'display_message_uri': string_types,
+    'callback_uri': string_types,
+    'currency': All(string_types, Length(min=3, max=3)),
+    'amount': string_types,
+    'additional_amount': string_types,
+    'required_scope': string_types,
+    'required_scope_text': string_types,
+    'capture_id': string_types,
+    'refund_id': string_types,
+    'text': string_types,
     'action': Any('reauth', 'capture', 'abort', 'release', 'refund',
                   'REAUTH', 'CAPTURE', 'ABORT', 'RELEASE', 'REFUND'),
     'line_items': Any([{
-        Required('product_id'): basestring,
-        'vat': basestring,
-        'metadata': Any([{'key': basestring, 'value': basestring}], None),
-        'description': basestring,
-        'vat_rate': basestring,
-        Required('total'): basestring,
+        Required('product_id'): string_types,
+        'vat': string_types,
+        'metadata': Any([{'key': string_types, 'value': string_types}], None),
+        'description': string_types,
+        'vat_rate': string_types,
+        Required('total'): string_types,
         'tags': [{
-            Required('tag_id'): basestring,
-            Required('label'): basestring,
+            Required('tag_id'): string_types,
+            Required('label'): string_types,
         }],
-        Required('item_cost'): basestring,
-        Required('quantity'): basestring,
+        Required('item_cost'): string_types,
+        Required('quantity'): string_types,
     }], None)
 })
 
 update_ticket_validator = Schema({
-    Required('tid'): basestring,
+    Required('tid'): string_types,
     'tickets': list,
 })
 
 update_shortlink_validator = Schema({
-    Required('shortlink_id'): basestring,
-    'callback_uri': basestring,
-    'description': basestring
+    Required('shortlink_id'): string_types,
+    'callback_uri': string_types,
+    'description': string_types
 })
 
 create_ledger_validator = Schema({
-    Required('currency'): basestring,
-    'description': basestring
+    Required('currency'): string_types,
+    'description': string_types
 })
 
 update_ledger_validator = Schema({
-    Required('ledger_id'): basestring,
-    'description': basestring
+    Required('ledger_id'): string_types,
+    'description': string_types
 })
 
 close_report_validator = Schema({
-    Required('ledger_id'): basestring,
-    Required('report_id'): basestring,
-    'callback_uri': basestring,
+    Required('ledger_id'): string_types,
+    Required('report_id'): string_types,
+    'callback_uri': string_types,
 })
 
 create_permission_request_validator = Schema({
-    'ledger': basestring,
-    Required('customer'): All(basestring, Length(max=100)),
-    Required('pos_id'): basestring,
-    Required('pos_tid'): basestring,
-    'text': basestring,
-    'callback_uri': basestring,
-    Required('scope'): basestring,
+    'ledger': string_types,
+    Required('customer'): All(string_types, Length(max=100)),
+    Required('pos_id'): string_types,
+    Required('pos_tid'): string_types,
+    'text': string_types,
+    'callback_uri': string_types,
+    Required('scope'): string_types,
     'expires_in': All(int, Range(min=0, max=2592000)),
 })
