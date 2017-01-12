@@ -1,10 +1,10 @@
 import json
-from auth import OpenAuth
-from validation import validate_input
+from .auth import OpenAuth
+from .validation import validate_input
 import logging
-from mapi_response import MapiResponse
-from backends.requestsframework import RequestsFramework
-from mapi_error import MapiError
+from .mapi_response import MapiResponse
+from .backends.requestsframework import RequestsFramework
+from .mapi_error import MapiError
 
 from poster.encode import multipart_encode
 from poster.encode import MultipartParam

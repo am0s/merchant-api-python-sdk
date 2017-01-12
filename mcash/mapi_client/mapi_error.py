@@ -1,4 +1,4 @@
-from mapi_response import MapiResponse
+from .mapi_response import MapiResponse
 
 __all__ = ["MapiError"]
 
