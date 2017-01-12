@@ -38,7 +38,7 @@ def rsa_auth_merchant_simple_test(
     print("r.status_code =", r.status_code, " ", httplib.responses[r.status_code])
 
     if len(r.json()[u'uris']) == 0:
-        print "creating a POS (point of sale) with pos_id '1'..."
+        print("creating a POS (point of sale) with pos_id '1'...")
         payload = {
             "id": "1",
             "name": "Kasse 1",
@@ -60,7 +60,7 @@ def rsa_auth_merchant_simple_test(
     r = s.send(s.prepare_request(req))
     print("r.status_code =", r.status_code, " ", httplib.responses[r.status_code])
     if len(r.json()[u'uris']) == 1:  # only default ledger exist
-        print "creating a ledger..."
+        print("creating a ledger...")
         payload = {
             "currency": "NOK",
             "description": "Ledger for Kasse 1"
