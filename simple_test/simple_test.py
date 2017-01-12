@@ -8,9 +8,9 @@ from __future__ import print_function
 import sys
 from optparse import OptionParser
 
-from create_merchant import create_merchant
-from create_merchant_user import create_merchant_user
-from rsa_auth_merchant_simple_test import rsa_auth_merchant_simple_test
+from .create_merchant import create_merchant
+from .create_merchant_user import create_merchant_user
+from .rsa_auth_merchant_simple_test import rsa_auth_merchant_simple_test
 
 
 def simple_test(my_testbed_token, integrator_name, integrator_rsa_file):

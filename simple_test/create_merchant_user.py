@@ -8,7 +8,8 @@ import json
 import httplib
 import requests
 from Crypto.PublicKey import RSA
-from auth import RSA_SHA256Auth
+
+from .auth import RSA_SHA256Auth
 
 
 def gen_rsa_key_pair_files(merchant_id, merchant_user):
