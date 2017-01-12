@@ -3,6 +3,8 @@
    calls look like. This file may change at anytime, without notification.
 '''
 
+from __future__ import print_function
+
 import sys
 from optparse import OptionParser
 
@@ -44,6 +46,6 @@ if __name__ == '__main__':
             options.integrator_name,
             options.integrator_rsa_file)
     else:
-        print "All command line options not given. Exiting.."
+        print("All command line options not given. Exiting..")
         parser.print_help()
         sys.exit(1)
