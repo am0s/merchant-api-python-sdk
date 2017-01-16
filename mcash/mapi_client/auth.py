@@ -6,7 +6,7 @@ from Crypto.Hash import SHA256
 from Crypto.PublicKey import RSA
 from Crypto.Signature import PKCS1_v1_5
 
-from .six import binary_type
+from .six import binary_type, text_type
 
 __all__ = ["OpenAuth", "SecretAuth", "RsaSha256Auth"]
 
@@ -62,6 +62,8 @@ class RsaSha256Auth(AuthBase):
         """Return the sha256 digest of the content in the
         header format the Merchant API expects.
         """
+        if isinstance(content, text_type):
+            content = content.encode('utf-8')
         content_sha256 = base64.b64encode(SHA256.new(content).digest())
         return b'SHA256=' + content_sha256
 
